@@ -1,0 +1,21 @@
+name = "claude-x-mauxx-ai-support"
+main = "src/index.js"
+compatibility_date = "2026-06-22"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[[routes]]
+pattern = "support.mauxxai.dev/*"
+zone_id = ""
+
+[env.production.triggers]
+crons = ["*/30 * * * *"]
+
+[[durable_objects.bindings]]
+name = "TICKET_STORE"
+class_name = "TicketStore"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["TicketStore"]
