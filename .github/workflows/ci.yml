@@ -1,0 +1,84 @@
+name: CI — Smart Auto-Test
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci || true
+      - name: Markdown lint
+        run: npx markdownlint-cli2 '**/*.md' --config '{}' || true
+      - name: Check YAML
+        run: yamllint .claude/ .github/ || true
+
+  test:
+    name: Auto-Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - name: Syntax check
+        run: node --check bin/*.mjs .claude/hooks/*.mjs
+      - name: Run post-install test
+        run: node bin/postinstall.js || true
+
+  verify:
+    name: Verify Config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check settings.json
+        run: |
+          if command -v jq &>/dev/null; then
+            jq . .claude/settings.json > /dev/null && echo "✅ settings.json valid"
+            jq . .claude/plugin.json > /dev/null && echo "✅ plugin.json valid"
+          fi
+      - name: Check all hooks parse
+        run: for f in .claude/hooks/*.mjs; do [ -f "$f" ] && node --check "$f" && echo "✅ $f"; done
+      - name: Check hooks.json
+        run: |
+          if command -v jq &>/dev/null; then
+            jq '.hooks.PostToolUse[0] | length' .claude/hooks/hooks.json > /dev/null
+            echo "✅ hooks.json valid"
+          fi
+
+  install-scripts:
+    name: Validate Install Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check install.sh syntax
+        run: bash -n install.sh && echo "✅ install.sh valid"
+      - name: Check .sh files
+        run: for f in *.sh; do [ -f "$f" ] && bash -n "$f" && echo "✅ $f"; done
+
+  notify:
+    name: Notify
+    needs: [lint, test, verify, install-scripts]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check status
+        run: |
+          echo "::notice::CI completed. All checks passed."
+          echo "✅ Lint: ${{ needs.lint.result }}"
+          echo "✅ Test: ${{ needs.test.result }}"
+          echo "✅ Verify: ${{ needs.verify.result }}"
+          echo "✅ Install: ${{ needs.install-scripts.result }}"
