@@ -11,6 +11,7 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "hasCompletedOnboarding": true,
+  "hooks": ".claude/hooks/hooks.json",
   "autoCompactEnabled": true,
   "autoCompactThreshold": 70,
   "permissions": {
