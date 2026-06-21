@@ -1,0 +1,57 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.claude/hooks/post-tool-use.mjs",
+            "env": {
+              "MAUXX_HOME": "${CLAUDE_PROJECT_DIR}"
+            }
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.claude/hooks/predictive-loader.mjs",
+            "env": {
+              "MAUXX_HOME": "${CLAUDE_PROJECT_DIR}"
+            }
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.claude/hooks/session-start.mjs",
+            "env": {
+              "MAUXX_HOME": "${CLAUDE_PROJECT_DIR}"
+            }
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.claude/hooks/pre-compact.mjs",
+            "env": {
+              "MAUXX_HOME": "${CLAUDE_PROJECT_DIR}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
