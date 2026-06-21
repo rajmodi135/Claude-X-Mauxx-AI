@@ -1,0 +1,228 @@
+/* ═══════════════════════════════════════════════════════
+   Claude x Mauxx AI — Neon TUI Theme (Dark + Neon)
+   ═══════════════════════════════════════════════════════ */
+
+Screen {
+  background: #0a0a1a;
+}
+
+/* Title bar — Mauxx logo + status */
+#title-bar {
+  height: 3;
+  dock: top;
+  padding: 0 1;
+  background: #0d0d2b;
+  border-bottom: solid #ff00ff;
+}
+
+#mauxx-logo {
+  content-align: left middle;
+  color: #00ffff;
+  text-style: bold;
+  width: 30;
+}
+
+#status-area {
+  width: 1fr;
+}
+
+#stats-bar {
+  dock: top;
+  height: 1;
+  layout: horizontal;
+  background: #111133;
+  border-bottom: solid #ff00ff33;
+}
+
+.stat-item {
+  padding: 0 1;
+  width: 20;
+  content-align: center middle;
+}
+
+.stat-value {
+  color: #00ff88;
+  text-style: bold;
+}
+
+.stat-label {
+  color: #6666aa;
+}
+
+/* Main conversation area */
+#conversation {
+  background: #0a0a1a;
+  border: none;
+  height: 1fr;
+}
+
+#conversation Log {
+  background: #0a0a1a;
+  color: #aaaacc;
+}
+
+/* AI Agent panel (right side) */
+#agent-panel {
+  dock: right;
+  width: 28;
+  height: 100%;
+  background: #0d0d2b;
+  border-left: solid #00ffff33;
+  padding: 1;
+}
+
+#agent-header {
+  color: #ff00ff;
+  text-style: bold;
+  height: 3;
+  content-align: center middle;
+}
+
+#agent-animation {
+  height: 5;
+  content-align: center middle;
+  color: #00ffff;
+}
+
+#agent-status {
+  height: 3;
+  content-align: center middle;
+  color: #8888cc;
+  text-style: italic;
+}
+
+#agent-stats {
+  height: 6;
+  margin: 1 0;
+}
+
+.agent-stat {
+  color: #cc88ff;
+  margin: 0 0 0 2;
+}
+
+.agent-stat-value {
+  color: #00ff88;
+  text-style: bold;
+}
+
+/* Input bar */
+#input-bar {
+  dock: bottom;
+  height: 5;
+  background: #0d0d2b;
+  border-top: solid #ff00ff33;
+  padding: 1;
+}
+
+#input-box {
+  background: #111133;
+  color: #ffffff;
+  border: solid #3333cc;
+  height: 3;
+}
+
+#input-box:focus {
+  border: solid #00ffff;
+}
+
+/* Buttons */
+Button {
+  background: #222255;
+  color: #aaaaff;
+  border: solid #3333cc;
+  height: 3;
+}
+
+Button:hover {
+  background: #3333aa;
+  color: #ffffff;
+  border: solid #6666ff;
+}
+
+Button.-primary {
+  background: #6600ff;
+  color: #ffffff;
+  border: solid #8800ff;
+  text-style: bold;
+}
+
+Button.-primary:hover {
+  background: #8800ff;
+  border: solid #aa00ff;
+}
+
+/* ◈══ Onboarding Screen ══◈ */
+#onboarding-screen {
+  align: center middle;
+  background: #0a0a1a;
+}
+
+#onboarding-container {
+  width: 60;
+  height: 30;
+  padding: 2;
+  background: #0d0d2b;
+  border: solid #ff00ff;
+}
+
+#onboarding-title {
+  content-align: center top;
+  color: #00ffff;
+  text-style: bold;
+  height: 3;
+}
+
+#onboarding-subtitle {
+  content-align: center top;
+  color: #8888cc;
+  height: 3;
+}
+
+#profession-select {
+  background: #111133;
+  color: #ffffff;
+  border: solid #3333cc;
+  height: 15;
+}
+
+#profession-select Button {
+  width: 20;
+  margin: 1 2;
+}
+
+#setting-screen {
+  align: center middle;
+  background: #0a0a1a;
+}
+
+#setting-container {
+  width: 60;
+  height: 25;
+  padding: 2;
+  background: #0d0d2b;
+  border: solid #00ffff33;
+}
+
+#setting-title {
+  content-align: center top;
+  color: #00ffff;
+  text-style: bold;
+  height: 3;
+}
+
+/* ◈══ Tooltip / Notifications ══◈ */
+Toast {
+  background: #222244;
+  color: #ccccee;
+  border: solid #5555aa;
+}
+
+/* ◈══ Scrollbar ══◈ */
+Scrollbar {
+  color: #3333aa;
+}
+
+Scrollbar:hover {
+  color: #6666ff;
+}
