@@ -1,0 +1,3 @@
+# Feedback data is created at runtime
+# Structure: feedback/tickets/, feedback/reviews/, feedback/feedback/
+# See .claude/commands/support.md, feedback.md, review.md

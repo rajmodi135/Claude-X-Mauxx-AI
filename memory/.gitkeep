@@ -1,0 +1,3 @@
+# Keep this directory in git
+# Actual memory files (MEMORY.md, plan-*.md, etc.) are created at runtime
+# See memory/README.md for the file format spec

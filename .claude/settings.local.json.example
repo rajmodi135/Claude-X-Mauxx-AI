@@ -1,0 +1,7 @@
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "your-token-here",
+    "ANTHROPIC_BASE_URL": "https://api.anthropic.com/v1"
+  },
+  "model": "opus"
+}

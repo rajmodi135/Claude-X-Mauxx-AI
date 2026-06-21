@@ -1,0 +1,33 @@
+{
+  "name": "claude-x-mauxx-ai",
+  "displayName": "Claude x Mauxx AI",
+  "version": "1.0.0",
+  "description": "Autonomous AI company for Claude Code — 24/7 self-driving mode with manager + agents, memory/plan system, tool accuracy tracking, auto-unlock at >90%, feedback/support tickets, and resource control.",
+  "author": "Mauxx AI",
+  "license": "MIT",
+  "repository": "github.com/mauxx-ai/claude-x-mauxx-ai",
+  "homepage": "https://github.com/mauxx-ai/claude-x-mauxx-ai",
+  "readme": "README.md",
+  "type": "automation",
+  "entryPoint": "CLAUDE.md",
+  "config": ".claude/settings.json",
+  "memoryDir": "memory/",
+  "commandsDir": ".claude/commands/",
+  "skillsDir": ".claude/skills/",
+  "hooksDir": ".claude/hooks/",
+  "workflowsDir": ".claude/workflows/",
+  "keywords": [
+    "claude", "ai-agent", "autonomous", "orchestrator",
+    "workflow", "memory-system", "plan-system",
+    "tool-accuracy", "self-improving", "24x7"
+  ],
+  "categories": ["automation", "agent", "workflow", "developer-tools"],
+  "requirements": {
+    "claudeCodeVersion": ">=0.4.0",
+    "model": "any"
+  },
+  "installation": {
+    "method": "npx",
+    "command": "npx claude-x-mauxx-ai"
+  }
+}

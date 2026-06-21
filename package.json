@@ -1,0 +1,56 @@
+{
+  "name": "claude-x-mauxx-ai",
+  "version": "1.0.0",
+  "description": "Autonomous AI company for Claude Code — 24/7 self-driving mode with manager + 6 agents, memory/plan system, tool accuracy tracking, auto-unlock at >90%, feedback/support tickets, and resource control.",
+  "keywords": [
+    "claude",
+    "ai-agent",
+    "autonomous",
+    "orchestrator",
+    "workflow",
+    "memory-system",
+    "plan-system",
+    "tool-accuracy",
+    "self-improving",
+    "24x7",
+    "claude-code-plugin",
+    "developer-tools"
+  ],
+  "homepage": "https://github.com/rajmodi135/Claude-X-Mauxx-AI",
+  "bugs": "https://github.com/rajmodi135/Claude-X-Mauxx-AI/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajmodi135/Claude-X-Mauxx-AI.git"
+  },
+  "license": "MIT",
+  "author": "rajmodi135",
+  "type": "module",
+  "main": "bin/claude-x-mauxx-ai.mjs",
+  "bin": {
+    "claude-x-mauxx-ai": "bin/claude-x-mauxx-ai.mjs",
+    "cma": "bin/claude-x-mauxx-ai.mjs"
+  },
+  "files": [
+    "bin/",
+    ".claude/",
+    "CLAUDE.md",
+    "CLAUDE_X_MAUXX_AI_MASTER_PLAN.md",
+    "README.md",
+    "INSTALL.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node bin/postinstall.js",
+    "start": "claude --config .claude/settings.json",
+    "mauxx": "claude --config .claude/settings.json"
+  },
+  "claude-code": {
+    "type": "plugin",
+    "entryPoint": "CLAUDE.md",
+    "configFile": ".claude/settings.json",
+    "autoLoad": true
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

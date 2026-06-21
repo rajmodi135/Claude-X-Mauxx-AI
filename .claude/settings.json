@@ -1,0 +1,50 @@
+{
+  "env": {
+    "ANTHROPIC_MODEL": "omega-plus",
+    "ANTHROPIC_SMALL_FAST_MODEL": "omega-plus",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "omega-plus",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "model": "opus",
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "hasCompletedOnboarding": true,
+  "autoCompactEnabled": true,
+  "autoCompactThreshold": 70,
+  "permissions": {
+    "defaultMode": "auto",
+    "allow": [
+      "Bash", "Edit", "Write", "Read", "Glob", "Grep",
+      "WebFetch", "WebSearch", "Agent", "Workflow",
+      "ScheduleWakeup", "CronCreate", "CronDelete", "CronList",
+      "NotebookEdit", "Skill", "EnterPlanMode", "ExitPlanMode"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "claudeMauxxAI": {
+    "version": "1.0",
+    "enabled": true,
+    "effortLevel": "ultracode",
+    "skillsAll": true,
+    "toolsAll": true,
+    "permissionsMode": "auto",
+    "loopMode": "24x7",
+    "resourceLimits": {
+      "maxContextKB": 500,
+      "maxAgents": 8,
+      "maxTokensPerTurn": 32000,
+      "maxTokensPerSession": 800000,
+      "maxCpuPercent": 90,
+      "maxRamPercent": 80
+    },
+    "accuracyThresholds": {
+      "tier1ToTier2": 85,
+      "tier2ToTier3": 90,
+      "tier3ToTier4": 95,
+      "tier4ToTier5": 98
+    }
+  }
+}
