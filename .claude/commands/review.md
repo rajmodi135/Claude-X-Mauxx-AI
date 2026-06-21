@@ -1,35 +1,25 @@
-# Claude x Mauxx AI — Review Completed Work
-# Invoke: /review
+# /review — Code Review
+# Invoke: /review [path]
 
-Review and rate completed work (1-5 stars).
-
-## What It Does
-1. Lists recently completed plans
-2. User selects one to review
-3. Prompts for ratings: accuracy, speed, communication (1-5 each)
-4. Optional written review
-5. Saves to feedback/reviews/<plan-name>.json
-6. Used by Innovation Lead and Memory Keeper for retrospective insights
+Run AI code review on a file, directory, or PR.
 
 ## Usage
+
 ```
-/review                     — interactive review
-/review <plan-name>         — review specific plan
-/review list                — list all reviews
+/review               — review pending changes
+/review src/auth.py   — review specific file
+/review src/          — review directory
+/review PR 123        — review a PR
+/review --security    — security-focused
+/review --perf        — performance-focused
 ```
 
-## JSON Format
-```json
-{
-  "id": "REV-2026-06-22-001",
-  "plan": "plan-agent-skills",
-  "ratings": {
-    "accuracy": 5,
-    "speed": 4,
-    "communication": 5
-  },
-  "review": "Excellent work. The agent-skills system is well-designed.",
-  "suggestions": "Could add more unit tests.",
-  "createdAt": "ISO-8601"
-}
-```
+## What It Checks
+
+- Bugs and edge cases
+- Security issues (OWASP)
+- Performance bottlenecks
+- Code style
+- Best practices
+- Test coverage
+- Documentation
