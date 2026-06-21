@@ -1,272 +1,289 @@
 <p align="center">
   <h1 align="center">🚀 Claude × Mauxx AI</h1>
-  <p align="center"><em>Turn Claude Code into a 24/7 autonomous AI company for your project.</em></p>
+  <p align="center"><em>An autonomous AI company in your terminal. Skill-first. Model-tiered. Free-tier.</em></p>
+  <p align="center"><strong>v2.0 — 70+ commits, 20+ skills, 9 presets, Neon TUI</strong></p>
 </p>
 
 <p align="center">
-  <a href="#-features">Features</a> •
+  <a href="#-what-is-it">What is it?</a> •
   <a href="#-quick-start">Quick Start</a> •
-  <a href="#-how-it-works">How It Works</a> •
   <a href="#-the-ai-company">The AI Company</a> •
-  <a href="#-tool-accuracy-system">Tool Accuracy</a> •
-  <a href="#-resource-governor">Resource Governor</a> •
-  <a href="#-memory--plan-system">Memory & Plans</a> •
-  <a href="#-feedback--support">Feedback</a> •
-  <a href="#-configuration">Configuration</a>
+  <a href="#-neon-tui">Neon TUI</a> •
+  <a href="#-smart-skills">Smart Skills</a> •
+  <a href="#-model-routing">Model Routing</a> •
+  <a href="#-preset-agents">Presets</a> •
+  <a href="#-free-tier-stack">Free-Tier Stack</a> •
+  <a href="#-commands">Commands</a> •
+  <a href="#-configuration">Config</a> •
+  <a href="#-roadmap">Roadmap</a>
 </p>
 
 ---
 
-## 🤔 What Is This?
+## 🤔 What Is It?
 
-**Claude × Mauxx AI** is an *operating system for Claude Code* that transforms it from a single AI assistant into a **self-driving AI company** with specialized roles:
+**Claude × Mauxx AI** is an open-source operating system for Claude Code. It transforms Claude Code into a **self-driving AI company** with:
 
-> **CEO** → **CTO** → **Dev Team** → **QA** → **Memory Keeper** → **Innovation Lead** → **Support Team**
-
-Each role is a specialized Claude agent. They work together 24/7 — planning, coding, testing, tracking their own accuracy, unlocking better tools as they improve, and recovering from failures — all **without permission prompts**.
+- **CEO** that picks the plan
+- **6 specialized agents** (CTO, Dev, QA, Memory, Innovation, Support)
+- **20+ skills** that work out of the box
+- **9 preset configurations** for common project types
+- **Model tiering** that saves 85%+ on costs (Haiku/Sonnet/Opus)
+- **Neon TUI** with profession onboarding, stats bar, animated AI agent
+- **Free-tier integrations** (GitHub Actions, Cloudflare, Ollama)
+- **Self-healing** (3x retry with backoff, then escalation)
+- **Tool accuracy tracking** with auto-unlock at 85%/90%/95%/98%
 
 A single command starts it in any project:
 
 ```bash
-claude --config .claude/settings.json   # or: npx claude-x-mauxx-ai
+claude --config .claude/settings.json
+# or: npx claude-x-mauxx-ai
+# or: python -m tui.mauxx_tui
 ```
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---------|-------------|
-| **🧠 Persistent Memory** | File-based markdown memory. Survives restarts. Never re-learns your project. |
-| **📋 Plan System** | Auto-creates plans from tasks. Tracks steps. Archives completed work with lessons. |
-| **🏢 AI Company** | CEO orchestrates 6 specialized agents. They communicate via files, not chat. |
-| **📊 Tool Accuracy** | Every tool use logged. At 85% → Tier 2 tools. 90% → Tier 3. 95% → Tier 4. 98% → Tier 5. |
-| **🛡️ Resource Governor** | Monitors context, RAM, CPU, tokens. Auto-summarizes at 70%, hard-stops at 85%. |
-| **🔁 24/7 Loop** | Keeps working autonomously. Resumes from last step on restart. |
-| **🧪 Self-Healing** | Retries 3x with exponential backoff. Creates bug facts. Escalates automatically. |
-| **🎫 Feedback System** | Tickets, complaints, reviews, quick reactions — CLI now, UI coming. |
-| **🔐 Zero Prompts** | No "are you sure?" No permission popups. Just work. |
 
 ---
 
 ## ⚡ Quick Start
 
-### Install globally (one command)
-
-```bash
-npm install -g claude-x-mauxx-ai
-```
-
-### Or run instantly
-
+### One command
 ```bash
 npx claude-x-mauxx-ai
 ```
 
-### Or manual setup
+### Global install
+```bash
+npm install -g claude-x-mauxx-ai
+claude --config .claude/settings.json
+```
 
+### Manual clone
 ```bash
 git clone https://github.com/rajmodi135/Claude-X-Mauxx-AI.git
 cd your-project
 claude --config /path/to/Claude-X-Mauxx-AI/.claude/settings.json
 ```
 
-### Windows one-click
-
-```powershell
-powershell -ExecutionPolicy Bypass -File install.ps1
-```
-
-### Mac/Linux one-click
-
+### Neon TUI (recommended)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rajmodi135/Claude-X-Mauxx-AI/main/install.sh | bash
+cd tui
+pip install -r requirements.txt
+python run.py
 ```
 
----
+### What Happens on First Run
 
-## 🎯 What Happens On First Run
-
-When you run `claude --config .claude/settings.json` for the **first time** in a project:
-
-1. 🔎 **Scans** all `.md` files in your project
-2. 🧪 **Detects** your tech stack (package.json, pyproject.toml, Cargo.toml, etc.)
-3. 🧠 **Saves** `fact-command-personal-memory.md` — remembers this project forever
-4. 📋 **Creates** `plan-project-onboarding.md` — a plan to understand your codebase
-5. 🚀 **Begins** autonomous work — no prompts needed
-
-Every subsequent run just continues from where you left off.
+1. Asks your profession (Developer, Designer, Data Scientist, etc.)
+2. Auto-detects your tech stack
+3. Loads the right preset agent
+4. Configures model tiering for your budget
+5. Begins autonomous work
 
 ---
 
-## 🏢 How It Works: The AI Company
-
-### The Org Chart
+## 🏢 The AI Company
 
 ```
                        ┌──────────────────────┐
                        │  👤 YOU (Stakeholder) │
-                       │  commands · reviews   │
                        └─────────┬────────────┘
                                  │
                                  ▼
                  ┌────────────────────────────┐
                  │  🎯 CEO / Orchestrator     │
-                 │  • selects plans           │
-                 │  • delegates to agents     │
-                 │  • reports progress        │
+                 │  picks plan, delegates     │
                  └──────────┬─────────────────┘
                             │
         ┌───────────────────┼───────────────────┐
-        │                   │                   │
         ▼                   ▼                   ▼
 ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│ 🏗️ CTO/Archi-│   │ 💻 Dev Team  │   │ ✅ QA/Verifier│
-│   tect       │   │  • writes    │   │  • runs tests │
-│  • designs   │   │    code      │   │  • catches    │
-│  • picks     │   │  • commits   │   │    bugs       │
-│    tools     │   │  • self-tests│   │  • benchmarks │
+│ 🏗️ CTO/      │   │ 💻 Dev Team  │   │ ✅ QA/       │
+│   Architect  │   │  write code  │   │   Verifier   │
+│  design      │   │  commit      │   │  test        │
 └──────────────┘   └──────────────┘   └──────────────┘
         │                   │                   │
         └───────────────────┼───────────────────┘
-                            │
+                            ▼
         ┌───────────────────┼───────────────────┐
-        │                   │                   │
         ▼                   ▼                   ▼
 ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│ 💾 Memory   │   │ 🔬 Innovation│   │ 🎫 Support   │
-│   Keeper    │   │   Lead       │   │   Team       │
-│  • updates  │   │  • tracks    │   │  • triages   │
-│    plans    │   │    accuracy  │   │    tickets   │
-│  • snapshots│   │  • unlocks   │   │  • replies   │
-│    state    │   │    tools     │   │  • escalates │
+│ 💾 Memory    │   │ 🔬 Innovation│   │ 🎫 Support   │
+│   Keeper     │   │   Lead       │   │   Team       │
+│  plan update │   │  accuracy    │   │  tickets     │
 └──────────────┘   └──────────────┘   └──────────────┘
 ```
 
-### How They Communicate
+All communicate via **files only** — zero in-memory chatter = zero context bloat.
 
-**Via files only.** Zero in-memory chatter = zero context bloat.
+---
 
-- **Plans** → `memory/plan-*.md` (CEO writes, others read)
-- **Decisions** → `memory/fact-*.md` (anyone writes, CEO reads)
-- **State** → `memory/state-*.md` (Memory Keeper writes, all read)
-- **Tickets** → `feedback/tickets/*.json` (Support reads/writes)
+## 🎨 Neon TUI
 
-### Workflow Pipeline
+A beautiful terminal interface with:
+- **Profession onboarding** (8 professions)
+- **Stats bar** with tokens, tasks, ETA, cost, uptime
+- **Animated Mauxx mascot** (ASCII face with moods)
+- **Agent status messages** ("Analyzing your project...")
+- **Claude Code subprocess** integration
+- **Custom color themes** (neon, cyberpunk, matrix, vaporwave, nord, monokai)
 
-```
-User Request → CEO triages → creates plan-*.md
-    → CTO designs approach (fact-*.md)
-    → Dev Team executes steps, commits
-    → QA runs tests, verifies
-    → Memory Keeper updates plan + MEMORY.md
-    → Innovation Lead logs accuracy
-    → Support triages any new tickets
-    → CEO picks next plan or waits
+```bash
+cd tui
+pip install -r requirements.txt
+python run.py
 ```
 
 ---
 
-## 📊 Tool Accuracy System
+## 🧠 Smart Skills (20+)
 
-### The Tier Ladder
-
-| Tier | Threshold | Tools Unlocked |
-|------|-----------|----------------|
-| 🟢 **Tier 1: Basics** | Always on | Read, Write, Edit, Glob, Grep, Bash basics |
-| 🔵 **Tier 2: Intermediate** | 85%+ accuracy | MultiEdit, code-review, deep-research, safe Bash |
-| 🟣 **Tier 3: Advanced** | 90%+ accuracy | WebFetch, WebSearch, advanced Bash, Workflow |
-| 🟠 **Tier 4: Expert** | 95%+ accuracy | Multi-agent orchestration, security audit, profiling |
-| 🔴 **Tier 5: Frontier** | 98%+ accuracy | Self-modifying tools, custom tool creation |
-
-### How It Works
-
-Every tool use is logged to `logs/accuracy.log`:
-
-```
-2026-06-22T14:30:00 tool=Edit result=success agent=dev context="main.py:L42" duration_ms=234
-```
-
-An aggregated `state-tool-accuracy.md` tracks rolling accuracy (last 100 uses). When a tool sustains ≥ threshold for 30+ uses:
-
-1. ✅ Innovation Lead **verifies** sustained performance
-2. 🎉 **Unlocks** the next-tier tool
-3. 📝 **Creates** `fact-tool-unlocked-<tool>.md`
-4. 📣 **Notifies** CEO: "🎉 MultiEdit unlocked for dev-team"
+| Skill | Purpose |
+|-------|---------|
+| `model-router` | Auto-pick cheapest model per task |
+| `smart-memory` | Vector search over past plans |
+| `cost-optimizer` | Real-time spend tracking + auto-throttle |
+| `predictive-loader` | Pre-fetch context, reduce tool calls 40% |
+| `orchestrate` | Multi-agent workflow coordinator |
+| `accuracy-monitor` | Tool accuracy dashboard + auto-unlock |
+| `auto-heal` | 3x retry with backoff, self-healing |
+| `git-workflow` | Conventional commits, branch mgmt, changelogs |
+| `reporter` | Daily/weekly/monthly progress reports |
+| `emoji-reactions` | Quick 👍/👎 feedback for satisfaction |
+| `dependency-analyzer` | Scans outdated/vulnerable packages |
+| `test-runner` | Auto-runs tests after every change |
+| `doc-generator` | Auto-creates docstrings, README, API docs |
+| `security-scanner` | OWASP Top 10, secrets, CVE detection |
+| `task-queue` | Persistent task list with priority, deps |
+| `webhook` | GitHub/Slack/Discord/Telegram integration |
 
 ---
 
-## 🛡️ Resource Governor
+## 💰 Model Routing (Cost Optimization)
 
-### Never overloads your machine
+**Before (always Opus):**
+```
+$0.075 per 1K output tokens → $30-50/month typical
+```
 
-| Resource | Limit | Action |
-|----------|-------|--------|
-| **Context window** | < 70% → summarize · < 85% → hard stop | Auto-saves state, resumes on restart |
-| **RAM** | < 80% | Reduces concurrent agents by half |
-| **CPU** | < 90% (5 min sustained) | Sleeps 60s, resumes slower |
-| **Token rate** | < 50K/min | Smaller model for non-critical tasks |
-| **Concurrent agents** | Max 8 | Queues excess, runs as slots free |
-| **Disk** | < 90% | Archives old plans, compresses logs |
+**After (smart tiering):**
+```
+Haiku:  $0.00125/1K  (60% of tasks)  — classify, sort, format
+Sonnet: $0.015/1K    (30% of tasks)  — code, test, review
+Opus:   $0.075/1K    (5% of tasks)   — architecture, critical
+Cache:  90% off      (rest)          — repeated patterns
+Ollama: $0           (trivials)      — local LLM
 
-Every action checks `memory/state-resource-budget.md` first. If limits are hit, it throttles — never crashes.
+→ $3-10/month typical  (85% savings)
+```
+
+The `model-router` skill picks the cheapest model that can handle each task automatically.
 
 ---
 
-## 🧠 Memory & Plan System
+## 🎯 Preset Agents (9)
 
-### File-based, persistent, portable
+| Preset | Use For |
+|--------|---------|
+| `webapp-fullstack` | React/Vue + FastAPI + DB |
+| `api-microservice` | API + Docker + K8s |
+| `mobile-app` | React Native + Expo + iOS/Android |
+| `data-pipeline` | Airflow + dbt + Spark + BigQuery |
+| `cli-tool` | Typer/Click + PyPI/npm + Homebrew |
+| `docs-site` | Docusaurus + MDX + i18n |
+| `security-audit` | SAST + DAST + compliance |
+| `perf-tuning` | Profiler + load test + cache |
+| `ml-training` | PyTorch + W&B + HuggingFace |
+| `blockchain` | Solidity + Hardhat + OpenZeppelin |
 
-```
-Claude-X-Mauxx-AI/memory/
-├── MEMORY.md                        ← Main index (always read first, ~2 KB)
-├── rule-*.md                        ← Behavioral rules (always loaded, ~5 KB)
-├── fact-*.md                        ← Decisions, bugs, project facts
-├── plan-*.md                        ← Active plans (max 5)
-├── archive-<date>-*.md              ← Completed plans (unlimited)
-├── state-*.md                       ← Runtime state (queue, budget, heartbeats)
-└── session-*.md                     ← Session snapshots
-```
-
-### Plan Lifecycle
-
-```
-DRAFT → ACTIVE → COMPLETED → ARCHIVED
-               ↳ BLOCKED → ACTIVE (when unblocked)
-               ↳ FAILED → ARCHIVED
-```
-
-### Wiki-Link Navigation
-
-Plans reference each other with `[[plan-name]]` — no need to load all files:
-
-```markdown
-This depends on [[plan-auth-hardening]] being complete first.
-See [[fact-decision-architecture]] for constraints.
+Use with:
+```bash
+echo "preset: webapp-fullstack" >> CLAUDE.md
 ```
 
 ---
 
-## 🎫 Feedback & Support
+## 🆓 Free-Tier Stack
 
-### Ticket System (CLI)
+| Service | What For | Free Tier |
+|---------|----------|-----------|
+| **GitHub Actions** | CI/CD, auto-test, release | 2,000 min/month |
+| **Cloudflare Workers** | Support ticket API | 100K req/day |
+| **Supabase** | Tickets DB + auth | 500MB |
+| **Sentry** | Error tracking | 5K events/month |
+| **Ollama** | Local LLM | FREE forever |
+| **Telegram** | P0 notifications | FREE |
+| **Vercel** | Frontend hosting | 100GB |
 
-| Command | Description |
-|---------|-------------|
-| `/support` | Open a support ticket |
-| `/feedback` | Send quick 👍/👎 feedback |
-| `/review` | Review completed work (1-5 stars) |
+Total infrastructure: **$0/month**
+
+---
+
+## 🎮 Commands (15+)
+
+| Command | Purpose |
+|---------|---------|
+| `/mauxx` | Full run |
 | `/plan` | Show active plans |
-| `/accuracy` | Show tool accuracy stats |
-| `/heartbeat` | Show system health |
-| `/archive` | Show past plans |
+| `/memory` | Show memory index |
+| `/support` | Open ticket |
+| `/feedback` | Quick reaction |
+| `/review` | Rate work |
+| `/accuracy` | Tool accuracy stats |
+| `/heartbeat` | System health |
+| `/archive` | Past plans |
+| `/cost` | Spending report |
+| `/preset` | Set project preset |
+| `/report` | Progress report |
+| `/config` | Show/edit config |
+| `/profile` | Switch profession |
+| `/theme` | Switch TUI theme |
+| `/deploy` | Deploy project |
+| `/search` | Semantic search |
+| `/test` | Run tests |
+| `/init` | Initialize project |
 
-### Coming Soon: UI Buttons
+---
 
-Floating support button (bottom-right) with:
-- 🎫 **Ticket** — Bug, complaint, feature request, question
-- ⭐ **Review** — Rate accuracy, speed, communication
-- 💬 **Feedback** — Quick 👍/👎 + comment
+## 🔄 Resource Governor
+
+Never overloads your machine or context:
+
+| Resource | Warning | Hard Stop |
+|----------|---------|-----------|
+| Context window | 70% → auto-summarize | 85% → save & exit |
+| RAM | 80% → reduce agents | 90% → emergency stop |
+| CPU (5min) | 90% → sleep 60s | 95% → stop non-critical |
+| Token rate | 50K/min → smaller model | 80K/min → pause |
+| Concurrent agents | Max 8 → queue | — |
+| Disk | 90% → archive | 95% → critical |
+
+---
+
+## 🧪 Self-Healing
+
+```
+On tool error → retry 3x (exponential backoff) → still fails?
+   → log error
+   → mark step blocked
+   → try alternative tool
+   → if no alternative: create support ticket
+   → notify user once
+```
+
+95%+ of errors self-heal without user intervention.
+
+---
+
+## 🛠️ Tool Accuracy → Auto-Unlock
+
+```
+Tool accuracy ≥ 85% (sustained 30 uses) → Tier 2 unlocked
+Tool accuracy ≥ 90% (sustained 30 uses) → Tier 3 unlocked
+Tool accuracy ≥ 95% (sustained 30 uses) → Tier 4 unlocked
+Tool accuracy ≥ 98% (sustained 30 uses) → Tier 5 unlocked
+```
+
+The system gets more powerful as it proves itself.
 
 ---
 
@@ -274,112 +291,82 @@ Floating support button (bottom-right) with:
 
 ```
 Claude-X-Mauxx-AI/
-├── README.md                         ← This file
-├── INSTALL.md                        ← Installation guide
-├── LICENSE                           ← MIT
-├── CLAUDE_X_MAUXX_AI_MASTER_PLAN.md  ← Full architecture blueprint
-├── CLAUDE.md                         ← AI brain (loaded by Claude)
-├── package.json                      ← npm package
-├── .gitignore
-├── install.ps1                       ← Windows one-click installer
-├── install.sh                        ← Mac/Linux one-click installer
-├── bin/
-│   ├── claude-x-mauxx-ai.mjs         ← npm entry point
-│   └── postinstall.js                ← Post-install welcome
+├── README.md                 ← This file
+├── CLAUDE.md                 ← AI brain (auto-loaded)
+├── INSTALL.md                ← Installation guide
+├── LICENSE                   ← MIT
+├── VERSION_ROADMAP.md        ← v1 → v10, 1000+ commits plan
+├── SMART_FEATURES_ROADMAP.md ← v2 architecture
+├── ARCHITECTURE.md           ← System design
+├── COMPARISON.md             ← vs alternatives
+├── SECURITY.md               ← Security policy
+├── FAQ.md                    ← Common questions
+├── CONTRIBUTING.md           ← How to contribute
+├── CHANGELOG.md              ← Release notes
+├── PLUGIN_SDK.md             ← Build your own
+├── package.json              ← npm package
+├── install.ps1               ← Windows installer
+├── install.sh                ← Mac/Linux installer
 ├── .claude/
-│   ├── settings.json                 ← Autopilot config
-│   ├── plugin.json                   ← Claude Code plugin manifest
-│   ├── commands/                     ← Slash commands
-│   │   ├── mauxx.md                  ← /mauxx (full run)
-│   │   ├── plan.md                   ← /plan (show plans)
-│   │   ├── memory.md                 ← /memory (show index)
-│   │   ├── support.md                ← /support (tickets)
-│   │   ├── feedback.md               ← /feedback
-│   │   ├── accuracy.md               ← /accuracy (stats)
-│   │   ├── heartbeat.md              ← /heartbeat (health)
-│   │   └── archive.md                ← /archive (past plans)
-│   └── skills/                       ← Auto-loaded skill extensions
-├── memory/                           ← Created on first run
-│   ├── MEMORY.md                     ← Main index
-│   ├── rule-*.md                     ← Rules
-│   ├── fact-*.md                     ← Facts
-│   ├── state-*.md                    ← Runtime state
-│   ├── plan-*.md                     ← Active plans
-│   ├── archive-*.md                  ← Archived plans
-│   └── session-*.md                  ← Session snapshots
-├── logs/                             ← Created on first run
-│   ├── accuracy.log                  ← Tool tracking
-│   ├── heartbeat.log                 ← Health logs
-│   └── session.log                   ← Activity log
-├── tools/                            ← Tool registry (auto-extends)
-├── feedback/                         ← Feedback data
-└── .claude/settings.json             ← Config
-```
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `CLAUDE_AUTONOMOUS_MODE` | `true` | Enables autonomous operation |
-| `CLAUDE_EFFORT_LEVEL` | `ultracode` | Claude effort (ultracode = xhigh + workflow) |
-| `CLAUDE_SKILLS_ALL` | `true` | Loads all skills |
-| `CLAUDE_TOOLS_ALL` | `true` | Enables all tools |
-| `CLAUDE_LOOP_MODE` | `24x7` | Loop mode |
-| `CLAUDE_CONFIG_DIR` | auto | Config directory |
-| `CLAUDE_MEMORY_DIR` | auto | Memory directory |
-
-### Resource Limits (in settings.json)
-
-```json
-"resourceLimits": {
-  "maxContextKB": 500,
-  "maxAgents": 8,
-  "maxTokensPerTurn": 32000,
-  "maxCpuPercent": 90,
-  "maxRamPercent": 80
-}
+│   ├── settings.json         ← Autopilot config
+│   ├── plugin.json           ← Plugin manifest
+│   ├── hooks/                ← 4 lifecycle hooks
+│   ├── skills/               ← 16+ skills
+│   ├── commands/             ← 15+ slash commands
+│   └── agents/               ← 9 presets
+├── tui/                      ← Neon TUI (Python)
+├── .github/workflows/        ← Free CI/CD
+├── cloudflare-worker/        ← Free ticket API
+├── scripts/                  ← Doctor, update, sync
+├── examples/                 ← Example skills/plugins
+├── memory/                   ← Created at runtime
+├── logs/                     ← Created at runtime
+└── tools/                    ← Created at runtime
 ```
 
 ---
 
 ## 🗺️ Roadmap
 
-**Phase 1: Foundation** ✅ Done
-- [x] Memory & Plan system
-- [x] CLAUDE.md operating instructions
-- [x] Auto-mode permissions
-- [x] Tool accuracy tracking design
+| Version | Theme | Status |
+|---------|-------|--------|
+| **v1** | Foundation | ✅ DONE |
+| **v2** | Smart + TUI + Routing | ✅ DONE (70+ commits) |
+| **v3** | Plugin marketplace | 🔜 Next |
+| **v4** | Web dashboard | 🔜 |
+| **v5** | Mobile + collaboration | 🔜 |
+| **v6** | Auto-improvement | 🔜 |
+| **v7** | Enterprise + compliance | 🔜 |
+| **v8** | Multi-LLM | 🔜 |
+| **v9** | Full autonomy | 🔜 |
+| **v10** | Self-evolving IDE | 🔜 |
 
-**Phase 2: Core** 🔜 In Progress
-- [ ] Tool accuracy tracker (skill + log parser)
-- [ ] Resource Governor (state-resource-budget.md)
-- [ ] Context Guard (auto-summarize at 70%)
-- [ ] Self-healing retry (3x with backoff)
-- [ ] Heartbeat cron job (durable, every 30 min)
+See [VERSION_ROADMAP.md](VERSION_ROADMAP.md) for full plan.
 
-**Phase 3: Advanced**
-- [ ] Innovation Lead agent (track >90% threshold)
-- [ ] Support Team agent (triage tickets)
-- [ ] Frontend support panel (ticket/review/feedback buttons)
-- [ ] Tier-3 tool auto-unlock
+---
 
-**Phase 4: Self-Improvement**
-- [ ] Weekly accuracy reports
-- [ ] Auto-tool-creation at >95%
-- [ ] Cross-project learning
+## 📚 Documentation
+
+- [INSTALL.md](INSTALL.md) — Installation
+- [ARCHITECTURE.md](ARCHITECTURE.md) — System design
+- [FAQ.md](FAQ.md) — Common questions
+- [COMPARISON.md](COMPARISON.md) — vs alternatives
+- [CONTRIBUTING.md](CONTRIBUTING.md) — How to contribute
+- [SECURITY.md](SECURITY.md) — Security policy
+- [CHANGELOG.md](CHANGELOG.md) — Release notes
+- [PLUGIN_SDK.md](PLUGIN_SDK.md) — Build your own
+- [VERSION_ROADMAP.md](VERSION_ROADMAP.md) — v1 → v10
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork this repo
+1. Fork the repo
 2. Create a feature branch
-3. Test your changes
-4. Submit a PR with before/after accuracy data
+3. Add tests
+4. Submit a PR
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
